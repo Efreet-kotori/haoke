@@ -10,6 +10,12 @@ const routes = [
     component: () => {
       return import('@/views/login')
     }
+  },
+  {
+    path: '/user',
+    component: () => {
+      return import('@/views/user')
+    }
   }
 ]
 
