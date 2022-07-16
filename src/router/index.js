@@ -4,7 +4,6 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 // 路由页面懒加载
 const routes = [
-  { path: '/', redirect: '/login' },
   {
     path: '/login',
     component: () => {
@@ -12,11 +11,19 @@ const routes = [
     }
   },
   {
-    path: '/user',
+    path: '/',
     component: () => {
-      return import('@/views/user')
-    }
-  }
+      return import('@/views/Layout')
+    },
+    redirect: '/ ',
+    children: [
+      { path: '/ ', component: () => import('@/views/Home') },
+      { path: '/house', component: () => import('@/views/House') },
+      { path: '/qa', component: () => import('@/views/QA') },
+      { path: '/profile', component: () => import('@/views/My') }
+    ]
+  },
+  { path: '/city', component: () => import('@/views/Home/city') }
 ]
 
 const router = new VueRouter({

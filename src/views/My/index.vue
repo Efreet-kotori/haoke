@@ -16,13 +16,13 @@
         <div class="My_user__B6O1D">
           <div class="My_name__3U2NB">游客</div>
           <div class="My_edit__3wqlv">
-           <van-button type="primary"   size="mini">去登录</van-button>
+            <van-button type="primary" size="mini">去登录</van-button>
           </div>
         </div>
       </div>
     </div>
     <div>
-      <van-grid :column-num="3" :border="false" clickable="true">
+      <van-grid :column-num="3" :border="false" clickable>
         <van-grid-item icon="star-o" text="我的收藏" />
         <van-grid-item icon="wap-home-o" text="我的出租" />
         <van-grid-item icon="underway-o" text="看房记录" />
@@ -38,23 +38,11 @@
         src="http://liufusong.top:8080/img/profile/join.png"
       />
     </div>
-    <van-tabbar v-model="active" active-color="#21b97a" inactive-color="#000">
-      <van-tabbar-item icon="wap-home-o">首页</van-tabbar-item>
-      <van-tabbar-item icon="search">找房</van-tabbar-item>
-      <van-tabbar-item icon="records">资讯</van-tabbar-item>
-      <van-tabbar-item icon="contact">我的</van-tabbar-item>
-    </van-tabbar>
   </div>
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-      active: 3
-    }
-  }
-}
+export default {}
 </script>
 
 <style scoped lang="less">
@@ -122,5 +110,4 @@ export default {
   text-align: center;
   margin-top: 25px;
 }
-
 </style>

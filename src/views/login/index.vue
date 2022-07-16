@@ -73,12 +73,19 @@ export default {
           forbidClick: true,
           loadingType: 'spinner'
         })
-        const res = await login(this.username, this.password)
-        console.log(res)
-        if (res.status === 200) {
+        try {
+          const res = await login(this.username, this.password)
+          // console.log(res.data.body)
+          this.$store.commit('setUser', res.data.body)
+          this.$router.push('/profile')
           this.$toast.success('登录成功')
-        } else {
-          this.$toast.fail('登录失败')
+        } catch (e) {
+          const status = e.response.status
+          let message = '登录错误，请刷新~'
+          if (status === 400) {
+            message = e.response.data.message
+          }
+          this.$toast.fail(message)
         }
       }
     }
