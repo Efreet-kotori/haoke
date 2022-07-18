@@ -23,7 +23,7 @@
     </div>
     <div>
       <van-grid :column-num="3" :border="false" clickable>
-        <van-grid-item icon="star-o" text="我的收藏" />
+        <van-grid-item icon="star-o" text="我的收藏" @click="Collection" />
         <van-grid-item icon="wap-home-o" text="我的出租" />
         <van-grid-item icon="underway-o" text="看房记录" />
         <van-grid-item icon="newspaper-o" text="成为房主" />
@@ -42,7 +42,13 @@
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    Collection () {
+      this.$router.push('/collection')
+    }
+  }
+}
 </script>
 
 <style scoped lang="less">

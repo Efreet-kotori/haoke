@@ -6,12 +6,23 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    user: getToken() || {}
-  },
-  mutations: {
-    setUser (state, payload) {
-      state.user = payload
-      setToken(payload)
+    user: getToken() || {},
+    HKZFcityInfo: JSON.parse(localStorage.getItem('HKZFcityInfo')) || {
+      label: '北京',
+      value: 'AREA|88cff55c-aaa4-e2e0'
     }
-  }
+  },
+  getters: {},
+  mutations: {
+    setUser (state, token) {
+      state.user = token
+      setToken(token)
+    },
+    setCityInfo (state, cityname) {
+      state.HKZFcityInfo = cityname
+      localStorage.setItem('HKZFcityInfo', JSON.stringify(cityname))
+    }
+  },
+  actions: {},
+  modules: {}
 })
