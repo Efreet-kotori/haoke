@@ -2,14 +2,14 @@
   <div>
     <Header title="收藏列表"></Header>
 
-    <HouseLise :houseList="houseSrc"></HouseLise>
+    <HouseList :houseList="houseSrc"></HouseList>
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header.vue'
 import { getFavorites } from '@/api/user'
-import HouseLise from '@/components/HouseList.vue'
+import HouseList from '@/components/HouseList.vue'
 export default {
   data () {
     return {
@@ -20,13 +20,13 @@ export default {
   },
   components: {
     Header,
-    HouseLise
+    HouseList
   },
   async created () {
     this.token = this.$store.state.user.token
     try {
       const res = await this.getFavorites(this.token)
-      console.log(res)
+      console.log(res.data)
       this.houseSrc = res.data.body
     } catch (error) {
       console.log(error)

@@ -1,4 +1,3 @@
-// 本地存储
 class Storage {
   set (key, value) {
     if (typeof value === 'object') {
@@ -10,8 +9,8 @@ class Storage {
   get (key) {
     const value = localStorage.getItem(key)
     try {
-      return JSON.parse(localStorage.getItem(key))
-    } catch (e) {
+      return JSON.parse(value)
+    } catch (error) {
       return value
     }
   }

@@ -12,3 +12,23 @@ export const login = (username, password) => {
     data: { username, password }
   })
 }
+
+export const userDataGet = () => {
+  return request({
+    url: '/user',
+    method: 'GET'
+  })
+}
+
+export const getFavorites = () => {
+  return request({
+    url: '/user/favorites',
+    method: 'GET'
+  })
+}
+
+export const published = () => {
+  return request({
+    url: '/user/houses'
+  })
+}
